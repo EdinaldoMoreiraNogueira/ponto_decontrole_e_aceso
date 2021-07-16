@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.envers.Audited;
 
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
+@Audited
 public class Movimentacao {
 
     @NoArgsConstructor
@@ -27,6 +29,7 @@ public class Movimentacao {
     }
     @Id
     @EmbeddedId
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private MovimentacaoId id;
     private LocalDateTime dataEntrada;
     private LocalDateTime dataSaida;
